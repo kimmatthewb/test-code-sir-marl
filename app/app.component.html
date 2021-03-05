@@ -1,0 +1,43 @@
+<div>Ascending List</div>
+
+<ul *ngIf="ascendingArray.length > 0">
+	<li *ngFor="let item of ascendingArray" #ascendingList>
+		{{ item }}
+	</li>
+</ul>
+<ul *ngIf="ascendingArray.length === 0">
+	<li *ngIf="ascendingArray.length <= 0"> No item on the list </li>
+</ul>
+
+<button *ngIf="descendingArray.length !== 0" (click)="onAddAscending()"
+  [disabled]="ascendingArray.length === 0">
+  Add on Ascending
+</button>
+
+<button *ngIf="descendingArray.length === 0" (click)="refresh()"
+  [disabled]="ascendingArray.length === 0">
+  Refresh
+</button>
+
+<br />
+<br />
+
+<div>Descending List</div>
+<ul *ngIf="descendingArray.length > 0">
+	<li *ngFor="let item of descendingArray" #descendingList>
+		{{ item }}
+	</li>
+</ul>
+<ul *ngIf="descendingArray.length === 0">
+	<li *ngIf="descendingArray.length <= 0"> No item on the list </li>
+</ul>
+
+<button *ngIf="ascendingArray.length !== 0" (click)="onAddDescending()"
+  [disabled]="descendingArray.length === 0">
+  Add on Descending
+</button>
+
+<button *ngIf="ascendingArray.length === 0" (click)="refresh()"
+  [disabled]="descendingArray.length === 0">
+  Refresh
+</button>
